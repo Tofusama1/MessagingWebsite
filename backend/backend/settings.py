@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'rest_framework',
-    'coresheaders',
-    'api'
+    'corsheaders',
+    
+    'posts',
 ]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173/"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
