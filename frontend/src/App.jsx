@@ -7,9 +7,17 @@ function App() {
     async function fetchData(){
       console.log(import.meta.env.VITE_API_URL)
       try{
-        const response = await fetch('http://127.0.0.1:8000/api/posts');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}posts/`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          mode: 'cors',
+        });
+        
         if (!response.ok){
-          throw new Error('Network response was not ok');
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
         console.log(result)
